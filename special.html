@@ -1,0 +1,111 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+<meta name="viewport" content="width = 1050, user-scalable = no" />
+<script type="text/javascript" src="./extras/jquery.min.1.7.js"></script>
+<script type="text/javascript" src="./extras/modernizr.2.5.3.min.js"></script>
+<link href="http://materializecss.com/dist/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+
+<div class="row">
+	<div class="flipbook-viewport">
+		<div class="container">
+			<div class="flipbook">
+				<div style="background-image:url(http://dujye7n3e5wjl.cloudfront.net/photographs/720-tall/time-100-influential-photos-jeff-widener-tank-man-81.jpg)"></div>
+				<div style="background-image:url(http://dujye7n3e5wjl.cloudfront.net/photographs/720-tall/time-100-influential-photos-alberto-korda-guerillero-heroico-48.jpg)"></div>
+				<div style="background-image:url(http://dujye7n3e5wjl.cloudfront.net/photographs/720-tall/time-100-influential-photos-neil-leifer-muhammad-ali-vs-sonny-liston-56.jpg)"></div>
+				<div style="background-image:url(http://dujye7n3e5wjl.cloudfront.net/photographs/720-tall/time-100-influential-photos-lunch-atop-skyscraper-19.jpg)"></div>
+				<div style="background-image:url(http://dujye7n3e5wjl.cloudfront.net/photographs/720-tall/time-100-influential-photos-nasa-pillars-creation-88.jpg)"></div>
+				<div style="background-image:url(http://dujye7n3e5wjl.cloudfront.net/photographs/720-tall/time-100-influential-photos-james-nachtwey-famine-somalia-86.jpg)"></div>
+				<div style="background-image:url(http://dujye7n3e5wjl.cloudfront.net/photographs/720-tall/time-100-influential-photos-sam-shere-hindenburg-disaster-26.jpg)"></div>
+				<div style="background-image:url(http://dujye7n3e5wjl.cloudfront.net/photographs/720-tall/time-100-influential-photos-dorothea-lange-migrant-mother-23.jpg)"></div>
+				<div style="background-image:url(http://dujye7n3e5wjl.cloudfront.net/photographs/720-tall/time-100-influential-photos-nat-fein-babe-bows-out-41.jpg)"></div>
+				<div style="background-image:url(http://dujye7n3e5wjl.cloudfront.net/photographs/720-tall/time-100-influential-photos-loch-ness-monster-21.jpg)"></div>
+				<div style="background-image:url(http://dujye7n3e5wjl.cloudfront.net/photographs/720-tall/time-100-influential-photos-margaret-bourke-white-gandhi-spinning-wheel-39.jpg)"></div>
+				<div style="background-image:url(http://dujye7n3e5wjl.cloudfront.net/photographs/720-tall/time-100-influential-photos-malcolm-browne-burning-monk-53.jpg)"></div>
+				
+				<div style="background-image:url(http://dujye7n3e5wjl.cloudfront.net/photographs/720-tall/time-100-influential-photos-chris-hondros-iraqi-girl-checkpoint-95.jpg)"></div>
+				<div style="background-image:url(http://dujye7n3e5wjl.cloudfront.net/photographs/720-tall/time-100-influential-photos-kevin-carter-starving-child-vulture-87.jpg)"></div>
+				<div style="background-image:url(http://dujye7n3e5wjl.cloudfront.net/photographs/720-tall/time-100-influential-photos-ron-haviv-bosnia-85.jpg)"></div>
+				<div style="background-image:url(http://dujye7n3e5wjl.cloudfront.net/photographs/720-tall/time-100-influential-photos-john-paul-filo-kent-state-shootings-65.jpg)"></div>
+				<div style="background-image:url(http://dujye7n3e5wjl.cloudfront.net/photographs/720-tall/time-100-influential-photos-charles-moore-birmingham-alabama-52.jpg)"></div>
+				<div style="background-image:url(http://dujye7n3e5wjl.cloudfront.net/photographs/720-tall/time-100-influential-photos-chairman-mao-swims-yangtze-58.jpg)"></div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+
+
+<script type="text/javascript">
+
+function loadApp() {
+
+	// Create the flipbook
+
+	$('.flipbook').turn({
+			// Width
+
+			width:1050,
+			
+			// Height
+
+			height:600,
+
+			// Elevation
+
+			elevation: 300,
+			
+			// Enable gradients
+
+			gradients: true,
+			
+			// Auto center this flipbook
+
+			autoCenter: true
+
+	});
+	
+	function randomize() {
+		var counter = 0;
+		var i = setInterval(function(){
+			if (Math.random() > 0.5) {
+				$(".flipbook").turn("next");
+			} else {
+				$(".flipbook").turn("previous");
+			}
+			
+
+			counter++;
+			if(counter === 10) {
+				clearInterval(i);
+			}
+		}, 100);
+	}
+
+	setInterval(randomize, 4000);
+	
+	
+}
+
+// Load the HTML4 version if there's not CSS transform
+
+yepnope({
+	test : Modernizr.csstransforms,
+	yep: ['./lib/turn.js'],
+	nope: ['./lib/turn.html4.min.js'],
+	both: ['css/basic.css'],
+	complete: loadApp
+});
+
+
+
+</script>
+
+</body>
+</html>
